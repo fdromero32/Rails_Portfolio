@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :portfolios, except: [:show]
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
-  # setting root path --> ex: localhose:3000/
+  # setting root path --> ex: localhost:3000/
   root to: 'pages#home'
 
 end
