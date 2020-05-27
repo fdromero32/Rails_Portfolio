@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   get 'contact', to: 'pages#contact'
   
   # blog
-  resources :blogs
+  resources :blogs do
+    member do
+      get :toggle_status
+    end
+  end
 
   #portfolio
   resources :portfolios, except: [:show]
