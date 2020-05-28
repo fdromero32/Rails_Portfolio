@@ -9,4 +9,7 @@ class Blog < ApplicationRecord
   # validations
   validates :title, :body, presence: true
 
+  #Table Relationships
+  belongs_to :topic
+
 end
