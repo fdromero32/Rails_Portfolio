@@ -14,6 +14,7 @@ class PortfoliosController < ApplicationController
   end
 
   def new
+    # new portfolio item is initialized.
     @portfolio_item = Portfolio.new
   end 
 
