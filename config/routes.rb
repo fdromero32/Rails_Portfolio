@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
  #homepages routes
   get 'about-me', to: 'pages#about'
   get 'contact', to: 'pages#contact'
