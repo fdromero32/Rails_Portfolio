@@ -1,7 +1,11 @@
 class PortfoliosController < ApplicationController
-
   def index
     @portfolio_items = Portfolio.all
+  end
+
+  # custom scope
+  def react
+    @react_portfolio_items = Portfolio.react
   end
 
   def show
@@ -9,11 +13,13 @@ class PortfoliosController < ApplicationController
   end
 
   def new
+    # new portfolio item is initialized.
     @portfolio_item = Portfolio.new
+    3.times { @portfolio_item.technologies.build }
   end 
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body))
+    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @portfolio_item.save
