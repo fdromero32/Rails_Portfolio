@@ -1,6 +1,7 @@
 class Portfolio < ApplicationRecord
+  has_many :technologies
 # validations
-validates :title, :body, :main_image, :thumb_image, presence: true
+  validates :title, :body, :main_image, :thumb_image, presence: true
 
 # custom scope
 # first define class method
@@ -12,7 +13,7 @@ validates :title, :body, :main_image, :thumb_image, presence: true
   scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Ruby on Rails') }
 
 # automatically runs when initialization happens.
-after_initialize :set_defaults
+  after_initialize :set_defaults
 
   def set_defaults
     self.main_image ||= "https://via.placeholder.com/600x400"
