@@ -10,6 +10,6 @@ class Blog < ApplicationRecord
   validates :title, :body, presence: true
 
   #Table Relationships
-  belongs_to :topic
+  belongs_to :topic, optional: true
 
 end
