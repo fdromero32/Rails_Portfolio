@@ -54,3 +54,7 @@ gem 'friendly_id', '~> 5.2.4'
 
 #Devise
 gem 'devise', '~> 4.7', '>= 4.7.1'
+
+#Bootstrap 4.5
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'
