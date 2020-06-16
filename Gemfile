@@ -61,3 +61,4 @@ gem 'jquery-rails'
 
 #Petergate Gem
 gem 'petergate', '~> 2.0', '>= 2.0.1'
+
