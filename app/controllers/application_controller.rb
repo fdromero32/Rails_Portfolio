@@ -21,19 +21,32 @@ class ApplicationController < ActionController::Base
   end
 
   def guest_user
-    OpenStruct.new(name: "Guest User",
-                  first_name: "Guest",
-                  last_name: "User",
-                  email: "guest@example.com"
-                  )
+    guest = GuestUser.new
+    guest.name = "Guest User"
+    guest.first_name = "Guest"
+    guest.last_name = "User"
+    guest.email = "guest@example.com"
+    guest
   end
 
   #Set Title
   before_action :set_page_defaults
 
   def set_page_defaults
-    @page_title = "My Portfolio Website"
+    @page_title = "Danny Romero Portfolio Site"
     @seo_keywords = "Danny Romero portfolio"
   end
 
+  # Set Copyright
+  def set_copyright
+    @copyright = DevcampTool::Renderer.copyright 'Danny Romero', 'All Rights Reserved'
+  end
+end
+
+module DevcampViewTool
+  class Renderer
+    def self.copyright name, msg
+      "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+    end
+  end
 end
