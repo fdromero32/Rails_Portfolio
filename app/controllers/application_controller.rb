@@ -36,4 +36,18 @@ class ApplicationController < ActionController::Base
     @seo_keywords = "Danny Romero portfolio"
   end
 
+  before_action :set_copyright
+  
+  def set_copyright
+    @copyright = DevcampViewTool::Renderer.copyright 'Danny Romero', 'All rights reserved'
+  end
+
+  module DevcampViewTool
+    class Renderer
+      def self.copyright name, msg
+        "&copy; #{Time.now.year} | <b> #{name}</b>".html_safe
+      end 
+    end
+  end
+  
 end
