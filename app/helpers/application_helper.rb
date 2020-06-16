@@ -1,3 +1,4 @@
+  
 module ApplicationHelper
   def login_helper
     if current_user.is_a?(GuestUser)
@@ -9,11 +10,14 @@ module ApplicationHelper
     end
   end
 
-  def source_helper
+  def source_helper(layout_name)
     if session[:source]
-      greeting = "Thanks for visiting me from #{session[:source]}, please feel free to #{ link_to 'contact me', contact_path } if you'd like to work together."
-      content_tag(:div, greeting.html_safe, class: 'styles')
+      greeting = "Thanks for visiting me from #{session[:source]} and you are on the #{layout_name} layout"
+      content_tag(:p, greeting, class: "source-greeting")
     end
   end
 
+  def copyright_generator
+    DevcampViewTool::Renderer.copyright 'Jordan Hudgens', 'All rights reserved'
+  end
 end
