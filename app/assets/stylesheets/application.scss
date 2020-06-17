@@ -123,3 +123,14 @@ body {
 .auth-links a {
   color: black;
 }
+
+.register-text{
+  text-align: right;
+}
+
+// cards that are nested within login. 
+.login > .card {
+  width: 22rem;
+  margin: 0 auto;
+  float: none;
+}
