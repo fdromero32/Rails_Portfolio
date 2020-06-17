@@ -1,13 +1,9 @@
 %main.inner.cover{role: "main"}
-  %h1.cover-heading Cover your page.
-  %p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
+  %h1.cover-heading Welcome.
+  %p.lead I'm a software developer in San Diego, CA and this is my portfolio. 
   %p.lead
-    %a.btn.btn-lg.btn-secondary{href: "#"} Learn more
+    %a.btn.btn-lg.btn-secondary{:href => about_me_path} Learn more
 %footer.mastfoot.mt-auto
   .inner
     %p
-      Cover template for
-      = succeed "," do
-        %a{href: "https://getbootstrap.com/"} Bootstrap
-      = succeed "." do
-        %a{href: "https://twitter.com/mdo"} @mdo
+      = @copyright
