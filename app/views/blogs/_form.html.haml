@@ -1,4 +1,4 @@
-= form_with(model: blog, local: true) do |form|
+= form_with(model: blog, local: true) do |f|
   - if blog.errors.any?
     #error_explanation
       %h2
@@ -7,12 +7,12 @@
       %ul
         - blog.errors.full_messages.each do |message|
           %li= message
-  .field
-    = form.label :title
-    = form.text_field :title
-  .field
-    = form.label :body
-    = form.text_area :body
-  .actions
-    = form.submit
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :body
+    = f.text_area :body, class: 'form-control', rows: 16
+  .form-group
+    = f.submit class: 'btn btn-primary'
 
