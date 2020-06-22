@@ -11,26 +11,10 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/blog_nav'
-    / start of blog header
-    .blog-header
-      .container
-        %h1.blog-title My Blog
-        %p.lead.blog-description An example blog template built with Bootstrap.
-        = link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin)
-    / end of blog header
+    = render 'shared/blog_masthead'
     .container
       .row
         = yield
         = render 'shared/blog_sidebar'
-      / start of footer
-      %footer.blog-footer
-        %p
-          Blog template built for
-          %a{href: "https://getbootstrap.com"} Bootstrap
-          by
-          = succeed "." do
-            %a{href: "https://twitter.com/mdo"} @mdo
-        %p
-          %a{href: "#"} Back to top
-      / end of footer
+      = render 'shared/blog_footer'
       = source_helper("blog")
