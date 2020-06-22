@@ -1,15 +1,5 @@
-%p#notice= notice
-%h1 Blogs
-%table
-  %thead
-    %tr
-      %th Title
-      %th Date
-      %th Body
-      %th{:colspan => "4"}
-  %tbody
-    = render @blogs
-
-%br/
-
-= link_to 'New Blog', new_blog_path if logged_in?(:site_admin)
+.col-sm-8.blog-main
+  = render @blogs
+  %nav.blog-pagination
+    %a.btn.btn-outline-primary{href: "#"} Older
+    %a.btn.btn-outline-secondary.disabled{href: "#"} Newer

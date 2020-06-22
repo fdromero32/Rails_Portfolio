@@ -2,16 +2,79 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}/
     %title= @page_title
     = csrf_meta_tags
-    = csp_meta_tag
     %meta{content: "#{@seo_keywords}", name: "keywords"}/
-    = stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = login_helper
-    = yield
-    = render "./shared/navbar", location: 'bottom'
-    -# = source_helper
+    = render 'shared/blog_nav'
+    / start of blog header
+    .blog-header
+      .container
+        %h1.blog-title My Blog
+        %p.lead.blog-description An example blog template built with Bootstrap.
+        = link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin)
+    / end of blog header
+    .container
+      .row
+        = yield
+        / start of sidebar
+        .col-sm-3.offset-sm-1.blog-sidebar
+          .sidebar-module.sidebar-module-inset
+            %h4 About
+            %p
+              Etiam porta
+              %em sem malesuada magna
+              mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+          .sidebar-module
+            %h4 Archives
+            %ol.list-unstyled
+              %li
+                %a{href: "#"} March 2014
+              %li
+                %a{href: "#"} February 2014
+              %li
+                %a{href: "#"} January 2014
+              %li
+                %a{href: "#"} December 2013
+              %li
+                %a{href: "#"} November 2013
+              %li
+                %a{href: "#"} October 2013
+              %li
+                %a{href: "#"} September 2013
+              %li
+                %a{href: "#"} August 2013
+              %li
+                %a{href: "#"} July 2013
+              %li
+                %a{href: "#"} June 2013
+              %li
+                %a{href: "#"} May 2013
+              %li
+                %a{href: "#"} April 2013
+          .sidebar-module
+            %h4 Elsewhere
+            %ol.list-unstyled
+              %li
+                %a{href: "#"} GitHub
+              %li
+                %a{href: "#"} Twitter
+              %li
+                %a{href: "#"} Facebook
+        / end of sidebar
+      / start of footer
+      %footer.blog-footer
+        %p
+          Blog template built for
+          %a{href: "https://getbootstrap.com"} Bootstrap
+          by
+          = succeed "." do
+            %a{href: "https://twitter.com/mdo"} @mdo
+        %p
+          %a{href: "#"} Back to top
+      / end of footer
+      = source_helper("blog")
