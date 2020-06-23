@@ -19,3 +19,6 @@ require("jquery")
 //= require jquery3
 //= require popper
 //= require bootstrap
+
+import 'bootstrap'
+import './src/application.scss'
