@@ -135,3 +135,9 @@ body {
   margin: 0 auto;
   float: none;
 }
+
+a.nav-link:hover {
+  color: #6C757D;
+  text-decoration: underline;
+  text-decoration-color: black ;
+}
