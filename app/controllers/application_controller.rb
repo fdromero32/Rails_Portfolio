@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  include Pagy::Backend
 
   #Devise WhiteList
   def configure_permitted_parameters
@@ -40,13 +41,13 @@ class ApplicationController < ActionController::Base
   before_action :set_copyright
   
   def set_copyright
-    @copyright = DevcampViewTool::Renderer.copyright 'Danny Romero', 'All rights reserved'
+    @copyright = DevcampViewTool::Renderer.copyright 'Danny Romero', 'All rights reserved.'
   end
 
   module DevcampViewTool
     class Renderer
       def self.copyright name, msg
-        "&copy; #{Time.now.year} | <b> #{name}</b>".html_safe
+        "&copy; #{Time.now.year} | <b>#{name}</b>, #{msg}".html_safe
       end 
     end
   end

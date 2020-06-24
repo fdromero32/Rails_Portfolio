@@ -62,3 +62,13 @@ gem 'jquery-rails'
 #Petergate Gem
 gem 'petergate', '~> 2.0', '>= 2.0.1'
 
+#Font Awesome
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+
+#Pagy Gem
+gem 'pagy', '~> 3.5'
+
+#Github Alerts
+gem "rack", ">= 2.2.3"
+gem "actionpack", ">= 6.0.3.2"
+

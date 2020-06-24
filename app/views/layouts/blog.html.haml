@@ -2,16 +2,19 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}/
     %title= @page_title
     = csrf_meta_tags
-    = csp_meta_tag
     %meta{content: "#{@seo_keywords}", name: "keywords"}/
-    = stylesheet_link_tag 'blogs', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = login_helper
-    = yield
-    = render "./shared/navbar", location: 'bottom'
-    -# = source_helper
+    = render 'shared/blog_nav'
+    = render 'shared/blog_masthead'
+    .container
+      .row
+        = yield
+        = render 'shared/blog_sidebar'
+      = render 'shared/blog_footer'
+      = source_helper("blog")

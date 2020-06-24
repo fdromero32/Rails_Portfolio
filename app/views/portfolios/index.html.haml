@@ -1,6 +1,13 @@
-%h1 Portfolio Items
-
-= link_to "Create New Item", new_portfolio_path if logged_in?(:site_admin)
-
-= render partial: 'portfolio_item', collection: @portfolio_items
+.album.text-muted
+  .container
+    .row
+      = render partial: 'portfolio_item', collection: @portfolio_items
+/ start of footer
+%footer.text-muted
+  .container
+    %p.float-right
+      %a{href: "#"} Back to top
+    %p
+      =@copyright
+/ end of footer
   

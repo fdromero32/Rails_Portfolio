@@ -2,16 +2,35 @@
 %html
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1, shrink-to-fit=no", name: "viewport"}/
     %title= @page_title
     = csrf_meta_tags
-    = csp_meta_tag
     %meta{content: "#{@seo_keywords}", name: "keywords"}/
-    = stylesheet_link_tag 'portfolios', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = render "shared/navbar", location: 'top'
-    = login_helper
-    -# = source_helper
+    / start of navigation
+    #navbarHeader.collapse.bg-dark
+      .container
+        .row
+          .col-sm-8.col-md-7.py-4
+            %h4.text-white About
+            %p.text-muted Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.
+          .col-sm-4.offset-md-1.py-4
+            %h4.text-white Explore
+            %ul.list-unstyled
+              %li= link_to "Home", root_path, class: 'text-white'
+              %li= link_to "About Me", about_me_path, class: 'text-white'
+              %li= link_to "Contact", contact_path, class: 'text-white'
+              %li= link_to "Blog", blogs_path, class: 'text-white'
+              %li= login_helper 'text-white'
+    .navbar.navbar-dark.bg-dark.box-shadow
+      .container.d-flex.justify-content-between
+        %a.navbar-brand.d-flex.align-items-center{href: "#"} My Portfolio
+        %button.navbar-toggler{"aria-controls" => "navbarHeader", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarHeader", "data-toggle" => "collapse", type: "button"}
+          %span.navbar-toggler-icon   
+    / end of navigation
+
     = yield
+    = source_helper("application")
