@@ -68,4 +68,6 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 #Pagy Gem
 gem 'pagy', '~> 3.5'
 
+#Jquery UI Rails Gem
+gem 'jquery-ui-rails'
 
