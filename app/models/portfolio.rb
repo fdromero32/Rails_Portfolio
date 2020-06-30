@@ -1,6 +1,7 @@
 class Portfolio < ApplicationRecord
   has_many :technologies
   accepts_nested_attributes_for :technologies, reject_if: lambda { |attributes| attributes['name'].blank? }
+  acts_as_list
 
 # validations
   validates :title, :body, :main_image, :thumb_image, presence: true
@@ -9,10 +10,6 @@ class Portfolio < ApplicationRecord
 # first define class method
   def self.react
     where(subtitle: 'React')
-  end
-
-  def self.by_position
-    order("position ASC")
   end
 
 # scope and lambda

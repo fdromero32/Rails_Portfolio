@@ -1,10 +1,15 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy]
+  before_action :set_portfolio_item, only: [:edit, :update, :show, :destroy, :move]
   layout "portfolio"
   access all: [:show, :index, :react], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
   
   def index
-    @portfolio_items = Portfolio.by_position
+    @portfolio_items = Portfolio.all
+  end
+
+  def move
+    @portfolio_item.insert_at(params[:position].to_i)
+    head :ok
   end
 
   # custom scope

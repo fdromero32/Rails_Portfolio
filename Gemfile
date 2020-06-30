@@ -71,3 +71,5 @@ gem 'pagy', '~> 3.5'
 #Jquery UI Rails Gem
 gem 'jquery-ui-rails'
 
+
+gem "acts_as_list", "~> 1.0"
